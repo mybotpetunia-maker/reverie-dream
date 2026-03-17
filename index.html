@@ -48,6 +48,13 @@
     .nav-logo { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: 14px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--indigo-lt); opacity: 0.85; }
 
     .hero { min-height: 100svh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 80px 24px 60px; position: relative; z-index: 1; }
+    @media (max-width: 600px) {
+      .hero { min-height: auto; padding: 48px 20px 32px; justify-content: flex-start; }
+      h1 { font-size: 2rem !important; margin-bottom: 12px; }
+      .hero-sub { font-size: 14px; margin-bottom: 10px; }
+      .hero-distinction { margin-bottom: 20px; }
+      .eyebrow { margin-bottom: 16px; }
+    }
     .eyebrow { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--indigo-lt); margin-bottom: 28px; opacity: 0.9; }
     h1 { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(50px, 12vw, 76px); line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 24px; }
     h1 em { font-style: italic; color: var(--indigo-lt); }
