@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dream Interpreter — What Did Your Dream Actually Mean?</title>
-  <meta name="description" content="Describe your dream and get a free personalized interpretation. Not a dictionary. A reading of your specific dream, symbols, and emotions." />
+  <title>Dream Interpretation by Text — Reverie</title>
+  <meta name="description" content="Text us your dream every morning. Get a personalized interpretation in minutes. No app, no subscription traps. 3-day free trial." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -63,16 +63,19 @@
 
     .capture-form { width: 100%; max-width: 400px; margin: 0 auto; }
     .input-row { display: flex; flex-direction: column; gap: 10px; }
-    .input-row input, .input-row textarea {
-      width: 100%; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 6px;
+    .phone-field { display: flex; gap: 0; }
+    .phone-prefix {
+      background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-right: none; border-radius: 6px 0 0 6px;
+      padding: 15px 14px; font-size: 15px; font-family: 'Inter', sans-serif; font-weight: 300;
+      color: var(--indigo-lt); white-space: nowrap; display: flex; align-items: center;
+    }
+    .phone-field input {
+      flex: 1; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 0 6px 6px 0;
       padding: 15px 18px; font-size: 15px; font-family: 'Inter', sans-serif; font-weight: 300;
       color: var(--white); outline: none; transition: border-color 0.2s; -webkit-appearance: none;
     }
-    .input-row textarea { min-height: 140px; resize: vertical; line-height: 1.6; }
-    .input-row input::placeholder, .input-row textarea::placeholder { color: var(--muted); }
-    .input-row input:focus, .input-row textarea:focus { border-color: var(--indigo-lt); }
-
-    .textarea-hint { font-size: 11px; color: var(--muted); opacity: 0.7; margin-top: -4px; text-align: left; padding: 0 2px; }
+    .phone-field input::placeholder { color: var(--muted); }
+    .phone-field input:focus { border-color: var(--indigo-lt); }
 
     .btn-primary {
       width: 100%; background: linear-gradient(135deg, #6366F1, #8B5CF6); border: none; border-radius: 6px;
@@ -104,18 +107,22 @@
     .diff-hdr.bad { color: rgba(255,255,255,0.25); }
     .diff-hdr.good { color: var(--indigo-lt); }
 
+    .trust-signals { max-width: 400px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .trust-item { padding: 16px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 8px; text-align: center; font-size: 14px; font-weight: 300; color: var(--white); line-height: 1.5; }
+    .trust-item .trust-icon { font-size: 20px; margin-bottom: 6px; display: block; }
+
     .sample-card { max-width: 440px; margin: 0 auto; background: linear-gradient(145deg, rgba(99,102,241,0.08) 0%, rgba(9,8,15,0.95) 100%); border: 1px solid var(--border); border-radius: 12px; padding: 28px 24px; }
     .sample-dream { font-size: 13px; color: var(--muted); font-style: italic; line-height: 1.6; padding: 14px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; margin-bottom: 20px; }
     .sample-dream::before { content: '"'; font-family: 'Cormorant Garamond', serif; font-size: 28px; color: var(--indigo-lt); opacity: 0.5; display: block; margin-bottom: -8px; }
     .sample-interp { font-size: 15px; font-weight: 300; line-height: 1.75; color: rgba(240,238,255,0.8); font-style: italic; }
     .interp-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--indigo-lt); opacity: 0.7; margin-bottom: 12px; }
 
+    .pricing-block { text-align: center; max-width: 400px; margin: 0 auto; padding: 24px; border: 1px solid var(--border); border-radius: 10px; background: rgba(99,102,241,0.04); }
+    .pricing-main { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--white); margin-bottom: 6px; }
+    .pricing-detail { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .pricing-detail strong { color: var(--indigo-lt); font-weight: 400; }
+
     .bottom-cta { padding: 80px 24px 100px; text-align: center; position: relative; z-index: 1; }
-    .upgrade-note { margin-top: 28px; padding: 20px; border: 1px solid var(--border); border-radius: 8px; max-width: 400px; margin-left: auto; margin-right: auto; }
-    .upgrade-note p { font-size: 13px; color: var(--muted); line-height: 1.6; }
-    .upgrade-note strong { color: var(--indigo-lt); font-weight: 400; }
-    .btn-upgrade { display: inline-block; margin-top: 12px; border: 1px solid rgba(163,148,252,0.35); border-radius: 6px; padding: 12px 24px; font-size: 13px; color: var(--indigo-lt); text-decoration: none; transition: all 0.2s; }
-    .btn-upgrade:hover { background: rgba(99,102,241,0.1); border-color: rgba(163,148,252,0.6); }
 
     footer { padding: 32px 24px; border-top: 1px solid var(--border); text-align: center; position: relative; z-index: 1; }
     footer p { font-size: 12px; color: var(--muted); opacity: 0.5; }
@@ -132,56 +139,38 @@
   <nav><span class="nav-logo">Reverie</span></nav>
 
   <section class="hero">
-    <div class="eyebrow">Free Dream Interpretation</div>
-    <h1>What did your<br />dream <em>actually</em><br />mean?</h1>
-    <p class="hero-sub">Describe what you dreamed. Get a free personalized interpretation of your specific symbols, emotions, and narrative — not a generic dictionary definition.</p>
-    <p class="hero-distinction">Because "water means emotion" isn't an interpretation. It's a cop-out.</p>
+    <div class="eyebrow">No app. No signup. Just text.</div>
+    <h1>Text us your<br />dream. We'll tell<br />you what it <em>means.</em></h1>
+    <p class="hero-sub">Every morning, we ask what you dreamed. You text back. Within minutes, you get a personalized interpretation — not a dictionary definition. A real reading.</p>
+    <p class="hero-distinction">Your dreams are trying to tell you something.</p>
 
     <div class="capture-form">
-      <form id="hero-form" novalidate action="/api/submit" method="POST">
+      <form id="hero-form" novalidate>
         <div class="input-row">
-          <input type="text" name="name" placeholder="First name" autocomplete="given-name" required />
-          <textarea name="dream" placeholder="Describe your dream — what happened, who was there, how it felt, anything you remember..." required></textarea>
-          <p class="textarea-hint">More detail = better interpretation. Include feelings, not just events.</p>
-          <input type="email" name="email" placeholder="Email address" autocomplete="email" inputmode="email" required />
-          <button type="submit" class="btn-primary">Interpret My Dream →</button>
+          <div class="phone-field">
+            <span class="phone-prefix">+1</span>
+            <input type="tel" name="phone" placeholder="(555) 123-4567" autocomplete="tel-national" inputmode="tel" required />
+          </div>
+          <button type="submit" class="btn-primary">Start Free Trial →</button>
         </div>
       </form>
       <div class="success-msg" id="hero-success">
         <div class="icon">🌙</div>
-        <p>We're interpreting your dream now. Check <em>your inbox</em> in the next few minutes.</p>
+        <p>Check your texts. <em>Your first dream prompt is on its way.</em></p>
       </div>
-      <p class="form-note">Free. No credit card. Unsubscribe anytime.</p>
+      <p class="form-note">3-day free trial. Then $3.99/week. Cancel anytime by texting STOP.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap">
-      <div class="section-label">The difference</div>
-      <h2>Your dream is<br /><em>not generic.</em></h2>
-      <p class="section-sub">Dream dictionaries give you symbol definitions. We interpret the whole dream — your specific version of it, with your emotions, your context.</p>
-      <div class="difference">
-        <div class="diff-row">
-          <div class="diff-cell bad">
-            <div class="diff-hdr bad">Dream dictionary</div>
-            "Water = emotion and the subconscious. Falling = loss of control."
-          </div>
-          <div class="diff-cell good">
-            <div class="diff-hdr good">Reverie</div>
-            "The fact that you were calm while underwater — not panicking — suggests you're more at peace with what's been unresolved than you're letting yourself believe."
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="padding-top:0">
-    <div class="wrap">
       <div class="section-label">How it works</div>
+      <h2>Dream journal<br />meets <em>text message.</em></h2>
+      <p class="section-sub">No app to install. No account to manage. Just your phone and your dreams.</p>
       <div class="how-steps">
-        <div class="step"><div class="step-num">1</div><div><div class="step-title">Describe your dream</div><p class="step-body">Write what you remember — symbols, people, feelings, events. The more detail, the more precise the interpretation.</p></div></div>
-        <div class="step"><div class="step-num">2</div><div><div class="step-title">We read the whole picture</div><p class="step-body">Not just symbol lookups. We analyze the emotional narrative, relationships between elements, and what your subconscious is processing.</p></div></div>
-        <div class="step"><div class="step-num">3</div><div><div class="step-title">Sent to your inbox</div><p class="step-body">Your interpretation arrives within minutes — something worth sitting with.</p></div></div>
+        <div class="step"><div class="step-num">1</div><div><div class="step-title">Sign up with your phone number</div><p class="step-body">Enter your number above. That's it — you're in. Your free trial starts immediately.</p></div></div>
+        <div class="step"><div class="step-num">2</div><div><div class="step-title">Every morning, we text you</div><p class="step-body">"What did you dream about?" — a simple prompt waiting for you when you wake up, while the dream is still fresh.</p></div></div>
+        <div class="step"><div class="step-num">3</div><div><div class="step-title">Text back. Get your reading.</div><p class="step-body">Describe your dream in a text. Within minutes, you get a personalized interpretation — plus a web link to save it.</p></div></div>
       </div>
     </div>
   </section>
@@ -197,35 +186,84 @@
     </div>
   </section>
 
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-label">The difference</div>
+      <h2>Better than an app.<br /><em>Better than a dictionary.</em></h2>
+      <p class="section-sub">Dream apps trap you in subscriptions and lose your data. We just text you.</p>
+      <div class="difference">
+        <div class="diff-row">
+          <div class="diff-cell bad">
+            <div class="diff-hdr bad">Dream apps</div>
+            Subscription traps. Aggressive upsells. Generic interpretations. Your dreams disappear when you cancel.
+          </div>
+          <div class="diff-cell good">
+            <div class="diff-hdr good">Reverie</div>
+            Just text. No app to download. No surprise charges. Your dreams are always yours. Cancel by texting STOP.
+          </div>
+        </div>
+        <div class="diff-row" style="margin-top:2px;">
+          <div class="diff-cell bad">
+            <div class="diff-hdr bad">ChatGPT</div>
+            Copy-paste your dream into a chat. Get a generic response. Forget about it. No continuity, no pattern tracking.
+          </div>
+          <div class="diff-cell good">
+            <div class="diff-hdr good">Reverie</div>
+            We prompt you every morning while the dream is fresh. Personalized readings that understand your recurring themes over time.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-label">Why people love it</div>
+      <div class="trust-signals">
+        <div class="trust-item"><span class="trust-icon">📱</span>No app to download</div>
+        <div class="trust-item"><span class="trust-icon">💳</span>No surprise charges</div>
+        <div class="trust-item"><span class="trust-icon">🔒</span>Your dreams don't disappear</div>
+        <div class="trust-item"><span class="trust-icon">✨</span>Insanely accurate readings</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-label">Pricing</div>
+      <div class="pricing-block">
+        <div class="pricing-main">3-day free trial</div>
+        <p class="pricing-detail">Then <strong>$3.99/week</strong>. Cancel anytime by texting STOP.<br />No contracts. No hidden fees. No app required.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="bottom-cta">
     <div class="wrap">
-      <div class="section-label">Still thinking about it?</div>
-      <h2>Get your<br /><em>interpretation.</em></h2>
-      <p class="section-sub">Describe your dream. We'll interpret it and send it straight to your inbox — free.</p>
+      <div class="section-label">Ready to understand yourself?</div>
+      <h2>Your dreams are<br />trying to <em>tell you<br />something.</em></h2>
+      <p class="section-sub">Start tomorrow morning. Just enter your phone number.</p>
       <div class="capture-form">
-        <form id="bottom-form" novalidate action="/api/submit" method="POST">
+        <form id="bottom-form" novalidate>
           <div class="input-row">
-            <input type="text" name="name" placeholder="First name" autocomplete="given-name" required />
-            <textarea name="dream" placeholder="Describe your dream..." required></textarea>
-            <input type="email" name="email" placeholder="Email address" autocomplete="email" inputmode="email" required />
-            <button type="submit" class="btn-primary">Interpret My Dream →</button>
+            <div class="phone-field">
+              <span class="phone-prefix">+1</span>
+              <input type="tel" name="phone" placeholder="(555) 123-4567" autocomplete="tel-national" inputmode="tel" required />
+            </div>
+            <button type="submit" class="btn-primary">Start Free Trial →</button>
           </div>
         </form>
         <div class="success-msg" id="bottom-success">
           <div class="icon">🌙</div>
-          <p>We're interpreting your dream now. Check <em>your inbox</em> in the next few minutes.</p>
+          <p>Check your texts. <em>Your first dream prompt is on its way.</em></p>
         </div>
-        <p class="form-note">Free. No credit card. Unsubscribe anytime.</p>
-      </div>
-      <div class="upgrade-note">
-        <p>Want to journal and interpret multiple dreams? <strong>Reverie Pro — $4.99/mo</strong> gives you unlimited interpretations, a searchable dream journal, and pattern analysis over time.</p>
-        <a href="/upgrade" class="btn-upgrade">Try Reverie Pro →</a>
+        <p class="form-note">3-day free trial. Then $3.99/week. Cancel anytime by texting STOP.</p>
       </div>
     </div>
   </section>
 
   <footer style="text-align:center; padding:40px 24px; font-size:12px; opacity:0.5; border-top:1px solid rgba(255,255,255,0.1); margin-top:60px;">
-    <p>For entertainment purposes only. Not professional, medical, or psychological advice.</p>
+    <p>For reflection and self-discovery. Not professional, medical, or psychological advice.</p>
     <p style="margin-top:8px;">
       <a href="/privacy.html" style="color:inherit;">Privacy Policy</a> · 
       <a href="/terms.html" style="color:inherit;">Terms of Service</a> · 
@@ -235,22 +273,40 @@
   </footer>
 
   <script>
+    function formatPhone(val) {
+      var digits = val.replace(/\D/g, '');
+      if (digits.length === 0) return '';
+      if (digits.length <= 3) return '(' + digits;
+      if (digits.length <= 6) return '(' + digits.slice(0,3) + ') ' + digits.slice(3);
+      return '(' + digits.slice(0,3) + ') ' + digits.slice(3,6) + '-' + digits.slice(6,10);
+    }
+    document.querySelectorAll('input[type="tel"]').forEach(function(input) {
+      input.addEventListener('input', function() {
+        var pos = this.selectionStart;
+        var before = this.value.length;
+        this.value = formatPhone(this.value);
+        var after = this.value.length;
+        this.setSelectionRange(pos + (after - before), pos + (after - before));
+      });
+    });
+
     function handleForm(formId, successId) {
-      const form = document.getElementById(formId);
-      const success = document.getElementById(successId);
+      var form = document.getElementById(formId);
+      var success = document.getElementById(successId);
       if (!form) return;
-      form.addEventListener('submit', async (e) => {
+      form.addEventListener('submit', async function(e) {
         e.preventDefault();
-        const btn = form.querySelector('button');
+        var btn = form.querySelector('button');
+        var phoneInput = form.querySelector('input[name="phone"]');
+        var digits = phoneInput.value.replace(/\D/g, '');
+        if (digits.length < 10) { phoneInput.focus(); return; }
         btn.textContent = 'Sending…'; btn.disabled = true;
         try {
-          const fd = new FormData(form);
-          const data = {};
-          fd.forEach(function(v, k) { if (v) data[k] = v; });
-          const res = await fetch(form.action, { method:'POST', body: JSON.stringify(data), headers:{'Content-Type':'application/json','Accept':'application/json'} });
+          var phone = '+1' + digits;
+          var res = await fetch('/api/submit', { method:'POST', body: JSON.stringify({ phone: phone }), headers:{'Content-Type':'application/json','Accept':'application/json'} });
           if (res.ok) { form.style.display='none'; success.style.display='block'; }
           else { btn.textContent='Try again →'; btn.disabled=false; }
-        } catch { btn.textContent='Try again →'; btn.disabled=false; }
+        } catch(err) { btn.textContent='Try again →'; btn.disabled=false; }
       });
     }
     handleForm('hero-form','hero-success');
@@ -258,18 +314,12 @@
   </script>
   <script>
 (function() {
-  // Our tracker auto-handles: page_view, scroll_25/50/75/100
-  // We just need to add form-specific tracking
   var flags = {};
-  
-  // Form Clicked
   document.addEventListener('click', function(e) {
     if (flags.fc) return;
     var f = e.target.closest('form, [class*="form"], [id*="form"], [class*="capture"]');
     if (f) { flags.fc = 1; if (window.trackEvent) trackEvent('form_clicked'); }
   });
-  
-  // Form Started (first field interaction)
   document.addEventListener('focusin', function(e) {
     if (flags.fs) return;
     if (e.target.matches('input, textarea, select')) {
@@ -277,8 +327,6 @@
       if (f) { flags.fs = 1; if (window.trackEvent) trackEvent('form_started'); }
     }
   });
-  
-  // Form Submitted
   document.addEventListener('submit', function(e) {
     if (flags.fsub) return;
     flags.fsub = 1;
